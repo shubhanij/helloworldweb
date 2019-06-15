@@ -10,7 +10,7 @@ def notify(status) {
         to: '<shubhani.299@gmail.com>'
        )
  }
-def server = Artifactory.server 'http://35.184.204.251:8081/artifactory'
+def server = Artifactory.server 'http://35.184.204.251:8081/artifactory/'
 def uploadSpec = """{
   "files": [
 	{
