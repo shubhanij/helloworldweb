@@ -43,10 +43,10 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url:https://github.com/shubhanij/helloworldweb.git]]])
+                    userRemoteConfigs: [[url: 'https://github.com/shubhanij/helloworldweb.git']]])
             }
         }
-    /*  stage('Build'){
+  /*    stage('Build'){
           agent { label "build1" }
 			steps {
                 sh 'mvn -f pom.xml clean package'
@@ -75,5 +75,5 @@ pipeline {
             }
          }
     }
-} */
-
+}
+*/
