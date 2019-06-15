@@ -14,7 +14,7 @@ def server = Artifactory.server 'http://35.184.204.251:8081/artifactory/'
 def uploadSpec = """{
   "files": [
 	{
-	  "pattern": "example-repo-local/Helloworldwebapp.war",
+	  "pattern": "target/petclinic.war",
 	  "target": "petclinic/"
 	}
 		   ]
@@ -33,7 +33,7 @@ pipeline {
  agent none
     stages {
       stage('SCM_Chekout') {
-          agent { label "node1" }
+          agent { label "master" }
 			steps {
 			    script {
 					notify('build-started')
@@ -47,14 +47,14 @@ pipeline {
             }
         }
       stage('Build'){
-          agent { label "build1" }
+          agent { label "master" }
 			steps {
                 sh 'mvn -f pom.xml clean package'
             }
         }
 
 	  stage('push-to-artifactory') {
-          agent { label "build1" }
+          agent { label "master" }
 			steps {
                 script {
 				   server.upload(uploadSpec)
